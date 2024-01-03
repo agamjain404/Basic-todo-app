@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
+// Use rcc to get this class component snippet
 export default class Todo extends Component {
+
+  // Use constructor to initialise state and get instance of this
   constructor() {
     super();
     this.state = {
@@ -10,6 +13,7 @@ export default class Todo extends Component {
   }
 
   handleChange = (event) => {
+    // Use setState to update the current state anytime
     this.setState({
         currTask: event.target.value
     });
@@ -40,8 +44,10 @@ export default class Todo extends Component {
         <ul>
             {
                 this.state.tasks.map((taskObj) => (
+                    // Recommended to have a key(unique id) of each element while traversing through a loop.
                     <li key={taskObj.id}>
                         <p>{taskObj.task}</p>
+                        {/* Always pass function definitions here. If need to pass parameters then pass them inside another function definition like shown below. */}
                         <button onClick={() => this.handleDelete(taskObj.id)}>Delete</button>
                     </li>
                 ))
